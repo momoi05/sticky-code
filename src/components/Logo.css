@@ -1,0 +1,15 @@
+.logo { line-height: 0; }
+
+/* Taille dans l'en-tête */
+.logo-img {
+  display: block;
+  height: 20px;
+  width: auto;
+  max-width: 100%;
+}
+
+/* Grande taille (accueil et splash) */
+.logo.big .logo-img {
+  height: auto;
+  width: min(280px, 72vw);
+}

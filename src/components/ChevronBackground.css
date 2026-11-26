@@ -1,0 +1,45 @@
+/* Largeur de la zone où flottent les chevrons (taille d'un téléphone) */
+.app-shell {
+  --bg-width: 480px;
+  position: relative;
+  z-index: 0;
+}
+
+/* Le contenu des pages passe au-dessus du fond */
+.app-shell > main {
+  position: relative;
+  z-index: 1;
+}
+
+.chevron-bg {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: min(100%, var(--bg-width));
+  transform: translateX(-50%);
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.chevron {
+  position: absolute;
+  opacity: 0.9;
+  animation-name: chevron-float;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+@keyframes chevron-float {
+  0%, 100% { transform: translate(0, 0) rotate(var(--rot)); opacity: 0.9; }
+  25%      { transform: translate(8px, -14px) rotate(calc(var(--rot) + 8deg)); }
+  50%      { transform: translate(-6px, -24px) rotate(calc(var(--rot) - 6deg)); opacity: 0.55; }
+  75%      { transform: translate(-10px, -8px) rotate(calc(var(--rot) + 4deg)); }
+}
+
+/* Respect des préférences d'accessibilité : pas de mouvement */
+@media (prefers-reduced-motion: reduce) {
+  .chevron { animation: none; }
+}
