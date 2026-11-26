@@ -5,7 +5,7 @@ export default function Learn({ onBack }) {
   return (
     <main className="phone">
       <header className="top">
-        <button className="pill" onClick={onBack}>Retour</button>
+        <button className="pill black" onClick={onBack}>Retour</button>
         <Logo />
         <span />
       </header>

@@ -1,6 +1,6 @@
-/* Largeur de la zone où flottent les chevrons (taille d'un téléphone) */
+/* Largeur de la zone où bougent les chevrons (taille d'un téléphone) */
 .app-shell {
-  --bg-width: 480px;
+  --bg-width: 560px;
   position: relative;
   z-index: 0;
 }
@@ -25,21 +25,53 @@
 
 .chevron {
   position: absolute;
-  opacity: 0.9;
-  animation-name: chevron-float;
+  opacity: 1;
+  overflow: visible;
+  /* petit halo pour qu'ils ressortent bien sur le noir */
+  filter: drop-shadow(0 0 6px currentColor);
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   will-change: transform;
 }
 
+.chevron.float { animation-name: chevron-float; }
+.chevron.sway  { animation-name: chevron-sway; }
+.chevron.spin  { animation-name: chevron-spin; }
+
+/* Monte et descend en tournant un peu */
 @keyframes chevron-float {
-  0%, 100% { transform: translate(0, 0) rotate(var(--rot)); opacity: 0.9; }
-  25%      { transform: translate(8px, -14px) rotate(calc(var(--rot) + 8deg)); }
-  50%      { transform: translate(-6px, -24px) rotate(calc(var(--rot) - 6deg)); opacity: 0.55; }
-  75%      { transform: translate(-10px, -8px) rotate(calc(var(--rot) + 4deg)); }
+  0%, 100% { transform: translate(0, 0) rotate(var(--rot)) scale(1); }
+  25%      { transform: translate(18px, -30px) rotate(calc(var(--rot) + 18deg)) scale(1.15); }
+  50%      { transform: translate(-14px, -56px) rotate(calc(var(--rot) - 14deg)) scale(0.9); }
+  75%      { transform: translate(-22px, -24px) rotate(calc(var(--rot) + 10deg)) scale(1.1); }
 }
+
+/* Balancier gauche / droite */
+@keyframes chevron-sway {
+  0%, 100% { transform: translate(-30px, 0) rotate(calc(var(--rot) - 25deg)); }
+  50%      { transform: translate(30px, -18px) rotate(calc(var(--rot) + 25deg)); }
+}
+
+/* Rotation complète avec petit rebond */
+@keyframes chevron-spin {
+  0%   { transform: translate(0, 0) rotate(var(--rot)) scale(1); }
+  50%  { transform: translate(0, -26px) rotate(calc(var(--rot) + 180deg)) scale(1.25); }
+  100% { transform: translate(0, 0) rotate(calc(var(--rot) + 360deg)) scale(1); }
+}
+
+/* Les deux moitiés du chevron "respirent" */
+.chevron .half {
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+.chevron .half.left  { animation-name: half-left; }
+.chevron .half.right { animation-name: half-right; }
+
+@keyframes half-left  { from { transform: translateX(0); }  to { transform: translateX(-3px); } }
+@keyframes half-right { from { transform: translateX(0); }  to { transform: translateX(3px); } }
 
 /* Respect des préférences d'accessibilité : pas de mouvement */
 @media (prefers-reduced-motion: reduce) {
-  .chevron { animation: none; }
+  .chevron, .chevron .half { animation: none; }
 }

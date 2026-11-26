@@ -32,7 +32,7 @@ export default function Game({ game, onLearn, onReset }) {
       </section>
 
       {isComplete && <p className="count">Stickman complet, bravo !</p>}
-      <button className="pill wide learn" onClick={onLearn}>
+      <button className="pill wide learn black" onClick={onLearn}>
         En savoir plus sur le HTML et le CSS
       </button>
 

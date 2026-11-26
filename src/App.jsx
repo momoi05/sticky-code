@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useGame } from './hooks/useGame';
+import ChevronBackground from './components/ChevronBackground';
 import Splash from './pages/Splash';
 import Home from './pages/Home';
 import Game from './pages/Game';
@@ -21,14 +22,23 @@ export default function App() {
     setPage('home');
   };
 
-  switch (page) {
-    case 'splash':
-      return <Splash onDone={() => setPage(game.hasProfile ? 'game' : 'home')} />;
-    case 'home':
-      return <Home onStart={handleStart} />;
-    case 'learn':
-      return <Learn onBack={() => setPage('game')} />;
-    default:
-      return <Game game={game} onLearn={() => setPage('learn')} onReset={handleReset} />;
-  }
+  const renderPage = () => {
+    switch (page) {
+      case 'splash':
+        return <Splash onDone={() => setPage(game.hasProfile ? 'game' : 'home')} />;
+      case 'home':
+        return <Home onStart={handleStart} />;
+      case 'learn':
+        return <Learn onBack={() => setPage('game')} />;
+      default:
+        return <Game game={game} onLearn={() => setPage('learn')} onReset={handleReset} />;
+    }
+  };
+
+  return (
+      <div className="app-shell">
+        <ChevronBackground />
+        {renderPage()}
+      </div>
+  );
 }

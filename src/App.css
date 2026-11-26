@@ -29,17 +29,18 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--yellow); ou
 .logo span { font-family: var(--mono); font-weight: 400; font-size: 1rem; color: var(--purple); }
 
 /* Boutons */
-.pill { border: 0; border-radius: 999px; padding: 10px 16px; font-weight: 900; font-size: .8rem; color: var(--black); cursor: pointer; background: var(--white); }
+.pill { border: 0; border-radius: 999px; padding: 10px 16px; font-weight: 900; font-size: .8rem; color: var(--white); cursor: pointer; background: var(--white); }
 .pill:disabled { opacity: .3; cursor: not-allowed; }
 .pill.wide { width: 100%; margin-top: 14px; padding: 14px; }
 .orange { background: var(--orange); } .purple { background: var(--purple); }
 .blue { background: var(--blue); } .yellow { background: var(--yellow); }
 .pill.ghost { background: none; color: var(--white); border: 3px solid var(--white); }
+.pill.black { color: var(--black); }
 
 .count { text-align: center; font-size: .8rem; margin: 18px 0 10px; color: var(--purple); letter-spacing: .05em; }
 
 /* Écran de jeu */
-.screen { position: relative; height: 540px; background: var(--panel); border: 4px solid var(--purple); border-radius: 28px; overflow: hidden; }
+.screen { position: relative; height: 540px; width: 90%;  margin: 0 auto;  background: var(--panel); border: 4px solid var(--purple); border-radius: 28px; overflow: hidden; }
 .stage { position: absolute; inset: 0 0 56px; display: flex; justify-content: center; align-items: center; }
 
 /* Bonhomme (blanc sur fond noir) */
@@ -53,13 +54,13 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--yellow); ou
 .sm-leg-l { transform: rotate(20deg); } .sm-leg-r { transform: rotate(-20deg); }
 
 /* Inspecteur de code */
-.inspector { position: absolute; left: 0; right: 0; bottom: 0; height: 56px; background: var(--black); color: var(--white); border-top: 3px solid var(--orange); border-radius: 28px 28px 0 0; padding: 0 14px 14px; transition: height .25s ease; overflow: hidden; display: flex; flex-direction: column; }
+.inspector { position: absolute; left: 0; right: 0; bottom: 0; height: 56px; background: var(--white); color: var(--black); border-top: 3px solid var(--purple); border-radius: 28px 28px 0 0; padding: 0 14px 14px; transition: height .25s ease; overflow: hidden; display: flex; flex-direction: column; }
 .inspector.open { height: 300px; }
 @media (prefers-reduced-motion: reduce) { .inspector { transition: none; } }
-.handle { background: none; border: 0; color: var(--white); font-weight: 900; font-size: .85rem; height: 56px; flex: none; cursor: pointer; }
-.handle::before { content: ""; display: block; width: 40px; height: 4px; border-radius: 4px; background: var(--yellow); margin: 0 auto 6px; }
+.handle { background: none; border: 0; color: var(--black); font-weight: 900; font-size: .85rem; height: 56px; flex: none; cursor: pointer; }
+.handle::before { content: ""; display: block; width: 40px; height: 4px; border-radius: 4px; background: var(--black); margin: 0 auto 6px; }
 .tabs { display: flex; gap: 8px; margin-bottom: 8px; }
-.tabs button { border: 2px solid #555; background: none; color: var(--white); border-radius: 999px; padding: 4px 14px; font-weight: 900; font-size: .75rem; cursor: pointer; }
+.tabs button { border: 2px solid #555; background: none; color: var(--black); border-radius: 999px; padding: 4px 14px; font-weight: 900; font-size: .75rem; cursor: pointer; }
 .tabs .on.o { background: var(--orange); border-color: var(--orange); color: var(--black); }
 .tabs .on.p { background: var(--purple); border-color: var(--purple); color: var(--black); }
 .inspector pre { flex: 1; margin: 0; overflow: auto; font: 13px/1.5 var(--mono); color: var(--yellow); }
