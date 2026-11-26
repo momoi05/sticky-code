@@ -57,7 +57,7 @@ export default function AddCardSheet({ game, onClose, onReset }) {
                     <p className="q">Quel type de carte veux-tu ajouter ?</p>
                     <button className="pill orange wide" onClick={() => chooseKind('html')}>Carte HTML</button>
                     <button className="pill purple wide" onClick={() => chooseKind('css')}>Carte CSS</button>
-                    <button className="pill wide" onClick={() => chooseKind('other')}>Autre (maîtresse, sticky, question)</button>
+                    <button className="pill wide black" onClick={() => chooseKind('other')}>Autre (maîtresse, sticky)</button>
                 </div>
             ) : (
                 <form onSubmit={submit} className="form">
@@ -65,7 +65,7 @@ export default function AddCardSheet({ game, onClose, onReset }) {
                         ref={inputRef}
                         value={code}
                         onChange={(e) => setCode(e.target.value)}
-                        placeholder="Code de la carte (ex. HTML-01)"
+                        placeholder="Code de la carte (ex. STK-HEADER)"
                         autoCapitalize="characters"
                     />
                     <button className="pill orange">Ajouter</button>

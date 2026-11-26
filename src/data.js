@@ -170,100 +170,113 @@ ROLES.forEach((r) => ACCESSORIES.forEach((a) => {
 // Contenu de la page « Learn » : [{ title, items: [{ t, d }] }]
 export const LEARN = [
     { title: 'HTML', items: [
-            { t: 'Balise', d: 'Un mot entre chevrons, comme <div>, qui indique le type d’un élément. Elle s’ouvre <div> et se ferme </div>.' },
-            { t: 'Élément', d: 'L’ensemble formé par la balise ouvrante, son contenu et la balise fermante.' },
-            { t: 'Attribut', d: 'Une information ajoutée dans la balise ouvrante, par exemple class="chapeau".' },
-            { t: 'Classe', d: 'Un nom donné à un élément (attribut class) pour pouvoir le cibler en CSS.' },
-            { t: '<div>', d: 'Un bloc générique, sans sens particulier : il sert à construire et styler des formes.' },
+            { t: 'What is a HTML?', d: 'HyperText MarkUp Language. HTML is written using tags and attributes. Tags are used to mark up the start of an HTML element and they are usually enclosed in angle brackets. An example of a tag is <div>.' },
+            { t: 'What is a Tag?', d: 'HTML is written using tags and attributes. Tags are used to mark up the start of an HTML element and they are usually enclosed in angle brackets. An example of a tag is <div>.' },
+            { t: 'What is a Attributes?', d: 'Attributes contain additional pieces of information. They take the form of an opening tag and additional info is placed inside. An example of an attribute is: <div class="head">.' },
+            { t: 'What is a Anchor?', d: 'An anchor element creates a hyperlink, which is used to link from one page to another. It is written <a>.' },
+            { t: 'What is a List?', d: 'HTML lists are used to group a set of related items in lists. HTML supports two kinds of lists: ordered lists and unordered lists. Within lists each individual list item has its own tag.' },
+            { t: 'What is a Table?', d: 'An element for displaying information in rows and columns.' },
+            { t: 'What is a Metadata?', d: 'Metadata is data about data. It is information that describes some other information in a meaningful way. The meta tag is used in an HTML document to provide information about the web page that can be understood by browsers.' },
+            { t: 'What is a Markup language?', d: 'A way that computers speak to each other to control how text is processed and presented.' },
+            { t: 'What is a Semantics?', d: 'Semantics means the correct meaning of a word or sentence. In programming, semantics describes the processes a computer follows when executing a program in that specific language.' },
         ] },
     { title: 'CSS', items: [
-            { t: 'Sélecteur', d: 'Ce qui désigne les éléments à styler. Le sélecteur .chapeau cible la classe « chapeau ».' },
-            { t: 'Propriété et valeur', d: 'Une déclaration s’écrit propriété: valeur; par exemple width: 80px; fixe la largeur.' },
-            { t: 'position: absolute', d: 'Place un élément à un endroit précis de son parent avec top et left.' },
-            { t: 'background', d: 'Définit le fond d’un élément : une couleur ou un dégradé.' },
-            { t: 'linear-gradient', d: 'Un fond qui passe progressivement d’une couleur à une autre.' },
-            { t: 'border-radius', d: 'Arrondit les angles d’un élément.' },
-            { t: 'clip-path', d: 'Découpe un élément selon une forme, par exemple un triangle ou des griffes.' },
-            { t: 'rotate', d: 'Fait tourner un élément selon un angle, par exemple rotate: 8deg;.' },
+            { t: 'What is a CSS?', d: 'Cascading style sheet. A style sheet contains the specifications of a document’s layout, such as the page size, margins, fonts and font sizes.' },
+            { t: 'What is a Style sheet?', d: 'A style sheet contains the specifications of a document’s layout, such as the page size, margins, fonts and font sizes.' },
+            { t: 'What is a Layout?', d: 'The layout of a website is how all the different visual elements are presented. It includes headers, menus, content and a footer.' },
+            { t: 'What is a Positioning?', d: 'The CSS position property defines the position of an element in a document. Positioning can be static, relative, absolute, fixed or sticky.' },
         ] },
-    { title: 'Règles du jeu', items: [
-            { t: 'Main de 8 cartes', d: 'Tu ne peux pas avoir plus de 8 cartes en main (maîtresses, HTML, CSS et sticky). Les cartes Questions ne comptent pas.' },
-            { t: 'Se défausser', d: 'Appuie sur × à côté d’une carte dans Add Card pour la défausser. Tu pourras la reprendre plus tard.' },
-            { t: 'Cartes maîtresses', d: 'Header (chapeau), Body (haut et accessoire de main) et Footer (bas et chaussures). Il faut la maîtresse du groupe pour ajouter une carte HTML de ce groupe.' },
-            { t: 'Sticky cards', d: 'Une sticky HTML remplace toutes les cartes HTML d’une maîtresse, une sticky CSS remplace toutes les cartes CSS de ton personnage pour ce groupe. Elle disparaît quand tout le groupe est lié.' },
-            { t: 'Lier deux cartes', d: 'Choisis une carte HTML et la carte CSS du même accessoire, puis réponds à la question. Si tu te trompes, tu attends ton prochain tour.' },
+    { title: 'Programming', items: [
+            { t: 'What is a OOP?', d: 'Object-oriented Programming. Inheritance is one of the core concepts of object-oriented programming (OOP) languages. It is a mechanism where you can derive a class from another class for a hierarchy of classes that share a set of attributes and methods.' },
+            { t: 'What is a Inheritance?', d: 'Inheritance is one of the core concepts of object-oriented programming (OOP) languages. It is a mechanism where you can derive a class from another class for a hierarchy of classes that share a set of attributes and methods.' },
         ] },
 ];
 
 // Banque de questions de liaison (QCM). a = index de la bonne réponse.
 export const QUESTIONS = [
-    { q: 'Quelle balise HTML crée un bloc générique ?', c: ['<span>', '<div>', '<p>'], a: 1 },
-    { q: 'Quel attribut donne une classe à un élément ?', c: ['class', 'style', 'name'], a: 0 },
-    { q: 'Quel sélecteur CSS cible la classe "chapeau" ?', c: ['#chapeau', 'chapeau', '.chapeau'], a: 2 },
-    { q: 'Quelle propriété change la couleur de fond ?', c: ['background', 'color', 'fill'], a: 0 },
-    { q: 'Quelle propriété arrondit les angles ?', c: ['corner', 'border-radius', 'round'], a: 1 },
-    { q: 'Quelle propriété ajoute une ombre à un bloc ?', c: ['shadow', 'text-shadow', 'box-shadow'], a: 2 },
-    { q: 'Quelle unité est relative à la taille de la police ?', c: ['px', 'em', 'cm'], a: 1 },
-    { q: 'Comment fermer une balise <div> ?', c: ['</div>', '<div/>', '<\\div>'], a: 0 },
-    { q: 'Quelle propriété CSS tourne un élément ?', c: ['turn', 'rotate', 'spin'], a: 1 },
-    { q: 'Quelle propriété fixe la largeur d’un élément ?', c: ['size', 'width', 'long'], a: 1 },
-    { q: 'Quelle déclaration CSS est correcte ?', c: ['color = red;', 'color: red;', 'color -> red;'], a: 1 },
-    { q: 'Quelle propriété place un élément à un endroit précis de son parent ?', c: ['position: absolute', 'display: block', 'float: none'], a: 0 },
+    { q: 'What is the main role of HTML when creating a website ?', c: ['Creating complex animations and vidéo games', 'Structurizing and organizing a web page content', 'Managing the data bases and password'], a: 1 },
+    { q: 'What is the main use of CSS language ?', c: ['To automatically translate a website in multiple languages', 'Stylizing and giving the shape of a web page', 'To verify forms from the server'], a: 1 },
+    { q: 'What CSS property allows to change the background\'s colour of a section or a page ?', c: ['Color', 'bgcolor', 'Background-color'], a: 2 },
+    { q: 'What is the correct way to open a tag with HTML', c: ['Between chevrons, like <p>', 'Between sockets, like (p)', 'Between braces, like {p}'], a: 0 },
+    { q: 'What is the use of the tag <input> in a form ?', c: ['Creating a text spot on which the user can write text', 'Activating fullscreen on a vidéo', 'Change the website\'s background'], a: 1 },
+    { q: 'What CSS property allows to change the text\'s color ?', c: ['font-color', 'text-color', 'color'], a: 2 },
+    { q: 'What HTML tag allows to insert an image on a webpage ?', c: ['<image>', '<img>', '<src>'], a: 1 },
+    { q: 'What HTML allows to create a clickable link towards another page ? ', c: ['<link>', '<url>', '<a>'], a: 2 },
+    { q: 'What HTML tag is used to display the main title, the most important title on a page ?', c: ['<title>', '<h1>', '<header>>'], a: 1 },
+    { q: 'What does the acronym HTML refer to ?', c: ['HyperText Markup Language', 'High Tech Modern Language', 'Hyperlink and Text Management Layout'], a: 0 },
 ];
 
 // Codes imprimés sur les cartes (modifie-les pour qu'ils correspondent à tes cartes).
 // type: character | master | sticky | html | css | question   -   ref: id de l'accessoire, « personnage-accessoire » pour le CSS, ou index de la question
 export const CARDS = {
     // Cartes personnage (saisies à l'accueil)
-    'CHR-01': { type: 'character', ref: 'princesse' },
-    'CHR-02': { type: 'character', ref: 'dragon' },
-    'CHR-03': { type: 'character', ref: 'pirate' },
-    'CHR-04': { type: 'character', ref: 'robot' },
+    '0001': { type: 'character', ref: 'dragon' },
+    '0002': { type: 'character', ref: 'pirate' },
+    '0003': { type: 'character', ref: 'robot' },
+    '0004': { type: 'character', ref: 'princesse' },
 
     // Cartes maîtresses
-    'MST-01': { type: 'master', ref: 'header' },
-    'MST-02': { type: 'master', ref: 'body' },
-    'MST-03': { type: 'master', ref: 'footer' },
+    'HEADER': { type: 'master', ref: 'header' },
+    'BODY': { type: 'master', ref: 'body' },
+    'FOOTER': { type: 'master', ref: 'footer' },
 
     // Cartes sticky (html-groupe ou css-groupe)
-    'STK-01': { type: 'sticky', ref: 'html-header' },
-    'STK-02': { type: 'sticky', ref: 'html-body' },
-    'STK-03': { type: 'sticky', ref: 'html-footer' },
-    'STK-04': { type: 'sticky', ref: 'css-header' },
-    'STK-05': { type: 'sticky', ref: 'css-body' },
-    'STK-06': { type: 'sticky', ref: 'css-footer' },
+    'STK-HEADER': { type: 'sticky', ref: 'html-header' },
+    'STK-BODY': { type: 'sticky', ref: 'html-body' },
+    'STK-FOOTER': { type: 'sticky', ref: 'html-footer' },
 
-    // Cartes HTML
-    'HTML-01': { type: 'html', ref: 'chapeau' },
-    'HTML-02': { type: 'html', ref: 'haut' },
-    'HTML-03': { type: 'html', ref: 'bas' },
-    'HTML-04': { type: 'html', ref: 'chaussures' },
-    'HTML-05': { type: 'html', ref: 'mains' },
+    // Cartes HTML (20 cartes imprimées : une par personnage et par accessoire,
+    // mais elles renvoient toutes à l'accessoire)
+    // Dragon
+    '2468': { type: 'html', ref: 'chapeau' },
+    '1357': { type: 'html', ref: 'haut' },
+    '3086': { type: 'html', ref: 'bas' },
+    '5678': { type: 'html', ref: 'chaussures' },
+    '7432': { type: 'html', ref: 'mains' },
+    // Princesse
+    '4432': { type: 'html', ref: 'chapeau' },
+    '5557': { type: 'html', ref: 'haut' },
+    '8897': { type: 'html', ref: 'bas' },
+    '2309': { type: 'html', ref: 'chaussures' },
+    '0009': { type: 'html', ref: 'mains' },
+    // Pirate
+    '0987': { type: 'html', ref: 'chapeau' },
+    '6785': { type: 'html', ref: 'haut' },
+    '3019': { type: 'html', ref: 'bas' },
+    '6123': { type: 'html', ref: 'chaussures' },
+    '9125': { type: 'html', ref: 'mains' },
+    // Robot
+    '7609': { type: 'html', ref: 'chapeau' },
+    '0997': { type: 'html', ref: 'haut' },
+    '8122': { type: 'html', ref: 'bas' },
+    '5311': { type: 'html', ref: 'chaussures' },
+    '6008': { type: 'html', ref: 'mains' },
 
-    // Cartes CSS : une par personnage et par accessoire (ref = personnage-accessoire)
-    'CSS-01': { type: 'css', ref: 'princesse-chapeau' },
-    'CSS-02': { type: 'css', ref: 'princesse-haut' },
-    'CSS-03': { type: 'css', ref: 'princesse-bas' },
-    'CSS-04': { type: 'css', ref: 'princesse-chaussures' },
-    'CSS-05': { type: 'css', ref: 'princesse-mains' },
-
-    'CSS-06': { type: 'css', ref: 'dragon-chapeau' },
-    'CSS-07': { type: 'css', ref: 'dragon-haut' },
-    'CSS-08': { type: 'css', ref: 'dragon-bas' },
-    'CSS-09': { type: 'css', ref: 'dragon-chaussures' },
-    'CSS-10': { type: 'css', ref: 'dragon-mains' },
-
-    'CSS-11': { type: 'css', ref: 'pirate-chapeau' },
-    'CSS-12': { type: 'css', ref: 'pirate-haut' },
-    'CSS-13': { type: 'css', ref: 'pirate-bas' },
-    'CSS-14': { type: 'css', ref: 'pirate-chaussures' },
-    'CSS-15': { type: 'css', ref: 'pirate-mains' },
-
-    'CSS-16': { type: 'css', ref: 'robot-chapeau' },
-    'CSS-17': { type: 'css', ref: 'robot-haut' },
-    'CSS-18': { type: 'css', ref: 'robot-bas' },
-    'CSS-19': { type: 'css', ref: 'robot-chaussures' },
-    'CSS-20': { type: 'css', ref: 'robot-mains' },
+    // Cartes CSS (ref = personnage-accessoire)
+    // Princesse
+    '2424': { type: 'css', ref: 'princesse-chapeau' },
+    '0801': { type: 'css', ref: 'princesse-haut' },
+    '7370': { type: 'css', ref: 'princesse-bas' },
+    '6600': { type: 'css', ref: 'princesse-chaussures' },
+    '0007': { type: 'css', ref: 'princesse-mains' },
+    // Dragon
+    '4359': { type: 'css', ref: 'dragon-chapeau' },
+    '6335': { type: 'css', ref: 'dragon-haut' },
+    '9999': { type: 'css', ref: 'dragon-bas' },
+    '1019': { type: 'css', ref: 'dragon-chaussures' },
+    '7777': { type: 'css', ref: 'dragon-mains' },
+    // Pirate
+    '1111': { type: 'css', ref: 'pirate-chapeau' },
+    '5665': { type: 'css', ref: 'pirate-haut' },
+    '7979': { type: 'css', ref: 'pirate-bas' },
+    '4447': { type: 'css', ref: 'pirate-chaussures' },
+    '3262': { type: 'css', ref: 'pirate-mains' },
+    // Robot
+    '8888': { type: 'css', ref: 'robot-chapeau' },
+    '2024': { type: 'css', ref: 'robot-haut' },
+    '5885': { type: 'css', ref: 'robot-bas' },
+    '2067': { type: 'css', ref: 'robot-chaussures' },
+    '0041': { type: 'css', ref: 'robot-mains' },
 
     // Cartes Questions (ref = position dans QUESTIONS, en partant de 0)
     'QST-01': { type: 'question', ref: 0 },
