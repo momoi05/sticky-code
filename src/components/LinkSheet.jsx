@@ -36,7 +36,7 @@ export default function LinkSheet({ game, onClose, onCorrect }) {
     setQuestion(null);
     setPickH('');
     setPickC('');
-    setMsg(ok ? 'Bonne réponse : la liaison est faite !' : 'Raté. Réessaie à ton prochain tour.');
+    setMsg(ok ? 'Correct answer: the link is made!' : 'Missed. Try again on your next turn.');
     if (ok) onCorrect();
   };
 
@@ -46,7 +46,7 @@ export default function LinkSheet({ game, onClose, onCorrect }) {
   };
 
   return (
-    <Sheet title="Lier deux cartes" onClose={onClose}>
+      <Sheet title="Link two cards" onClose={onClose}>
       {question ? (
         <div className="form">
           <p className="q">{question.q}</p>
@@ -57,7 +57,7 @@ export default function LinkSheet({ game, onClose, onCorrect }) {
       ) : (
         <>
           <PickList
-            title="Carte HTML"
+            title="HTML cards"
             cls="orange"
             options={htmlOptions}
             selected={pickH}
@@ -65,10 +65,10 @@ export default function LinkSheet({ game, onClose, onCorrect }) {
             isDisabled={(id) => !!pickC && CSS_INFO[pickC].acc !== id}
             getLabel={accLabel}
             isOwned={(id) => me.html.includes(id)}
-            emptyText="Aucune carte HTML."
+            emptyText="No HTML card"
           />
           <PickList
-            title="Carte CSS"
+            title="CSS cards"
             cls="purple"
             options={cssOptions}
             selected={pickC}
@@ -76,15 +76,15 @@ export default function LinkSheet({ game, onClose, onCorrect }) {
             isDisabled={(id) => !!pickH && CSS_INFO[id].acc !== pickH}
             getLabel={(id) => CSS_INFO[id].label}
             isOwned={(id) => me.css.includes(id)}
-            emptyText="Aucune carte CSS."
+            emptyText="No CSS card"
           />
 
           {msg && <p className="note">{msg}</p>}
 
           {me.failed ? (
             <>
-              <p className="note">Liaison verrouillée jusqu’à ton prochain tour.</p>
-              <button className="pill yellow wide" onClick={handleUnlock}>C’est mon tour</button>
+              <p className="note">Linking locked until your next turn.</p>
+              <button className="pill yellow wide" onClick={handleUnlock}>It's my turn</button>
             </>
           ) : (
             <button

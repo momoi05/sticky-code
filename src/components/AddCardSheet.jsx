@@ -4,7 +4,7 @@ import { accLabel, getGroup, stickyLabel } from '../utils/helpers';
 import Sheet from './Sheet';
 import Chip from './Chip';
 
-// Préfixe pré-écrit dans le champ selon le type de carte choisi
+// Prefix pre-filled in the field depending on the chosen card type
 const PREFIXES = { html: 'HTML-', css: 'CSS-', other: '' };
 
 export default function AddCardSheet({ game, onClose, onReset }) {
@@ -15,7 +15,7 @@ export default function AddCardSheet({ game, onClose, onReset }) {
     const [kind, setKind] = useState(null); // null | 'html' | 'css' | 'other'
     const inputRef = useRef(null);
 
-    // Une fois le type choisi : focus sur le champ, curseur après le préfixe
+    // Once the type is chosen: focus the field, cursor after the prefix
     useEffect(() => {
         const el = inputRef.current;
         if (!kind || !el) return;
@@ -40,24 +40,24 @@ export default function AddCardSheet({ game, onClose, onReset }) {
         const { ok, message } = addCard(code);
         setMsg(message);
         if (ok) {
-            setKind(null); // on redemande le type pour la carte suivante
+            setKind(null); // ask for the type again for the next card
             setCode('');
         }
     };
 
     const remove = (type, ref) => {
         discard(type, ref);
-        setMsg('Carte défaussée.');
+        setMsg('Card discarded.');
     };
 
     return (
-        <Sheet title="Ajouter une carte" onClose={onClose}>
+        <Sheet title="Add a card" onClose={onClose}>
             {kind === null ? (
                 <div className="form">
-                    <p className="q">Quel type de carte veux-tu ajouter ?</p>
-                    <button className="pill orange wide" onClick={() => chooseKind('html')}>Carte HTML</button>
-                    <button className="pill purple wide" onClick={() => chooseKind('css')}>Carte CSS</button>
-                    <button className="pill wide black" onClick={() => chooseKind('other')}>Autre (maîtresse, sticky)</button>
+                    <p className="q">Which type of card do you want to add?</p>
+                    <button className="pill orange wide" onClick={() => chooseKind('html')}>HTML card</button>
+                    <button className="pill purple wide" onClick={() => chooseKind('css')}>CSS card</button>
+                    <button className="pill wide black" onClick={() => chooseKind('other')}>Other (master, sticky)</button>
                 </div>
             ) : (
                 <form onSubmit={submit} className="form">
@@ -65,16 +65,16 @@ export default function AddCardSheet({ game, onClose, onReset }) {
                         ref={inputRef}
                         value={code}
                         onChange={(e) => setCode(e.target.value)}
-                        placeholder="Code de la carte (ex. STK-HEADER)"
+                        placeholder="Card code (e.g. STK-HEADER)"
                         autoCapitalize="characters"
                     />
-                    <button className="pill orange">Ajouter</button>
-                    <button type="button" className="pill ghost" onClick={backToKinds}>Changer de type</button>
+                    <button className="pill orange">Add</button>
+                    <button type="button" className="pill ghost" onClick={backToKinds}>Change the type</button>
                 </form>
             )}
             {msg && <p className="note">{msg}</p>}
 
-            <h3>Ma main : {handSize}/{MAX_HAND}</h3>
+            <h3>My hand: {handSize}/{MAX_HAND}</h3>
             <div className="chips">
                 {me.master.map((id) => (
                     <Chip key={id} cls="dark" label={getGroup(id).label} onDelete={() => remove('master', id)} />
@@ -89,21 +89,21 @@ export default function AddCardSheet({ game, onClose, onReset }) {
                     <Chip key={id} cls="blue" label={stickyLabel(id)} onDelete={() => remove('sticky', id)} />
                 ))}
                 {me.question.length > 0 && <span className="chip yellow">Questions ×{me.question.length}</span>}
-                {!handSize && <span className="muted">Ta main est vide.</span>}
+                {!handSize && <span className="muted">Your hand is empty.</span>}
             </div>
 
             <div className="reset">
                 {confirmReset ? (
                     <>
-                        <p className="note">Tout supprimer, y compris ton nom et ton personnage ?</p>
+                        <p className="note">Delete everything, including your name and character?</p>
                         <div className="row">
-                            <button className="pill orange" onClick={onReset}>Oui, recommencer</button>
-                            <button className="pill" onClick={() => setConfirmReset(false)}>Annuler</button>
+                            <button className="pill orange" onClick={onReset}>Yes, start over</button>
+                            <button className="pill" onClick={() => setConfirmReset(false)}>Cancel</button>
                         </div>
                     </>
                 ) : (
                     <button className="pill ghost" onClick={() => setConfirmReset(true)}>
-                        Tout enlever et recommencer
+                        Remove everything and start over
                     </button>
                 )}
             </div>

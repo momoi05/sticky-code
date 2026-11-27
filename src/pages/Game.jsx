@@ -31,10 +31,10 @@ export default function Game({ game, onLearn, onReset }) {
         />
       </section>
 
-      {isComplete && <p className="count">Stickman complet, bravo !</p>}
-      <button className="pill wide learn black" onClick={onLearn}>
-        En savoir plus sur le HTML et le CSS
-      </button>
+        {isComplete && <p className="count">Stickman complete, well done!</p>}
+        <button className="pill wide learn black" onClick={onLearn}>
+            Learn more about HTML and CSS
+        </button>
 
       {sheet === 'add' && <AddCardSheet game={game} onClose={closeSheet} onReset={onReset} />}
       {sheet === 'link' && (

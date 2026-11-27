@@ -20,18 +20,18 @@ export default function Home({ onStart }) {
           className="plain"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="Ton nom"
+          placeholder="Your name"
           maxLength={20}
           autoFocus
         />
         <input
           value={code}
           onChange={(e) => setCode(e.target.value)}
-          placeholder="Code carte personnage"
+          placeholder="Character card code"
           autoCapitalize="characters"
         />
         {msg && <p className="note">{msg}</p>}
-        <button className="pill purple wide">Jouer</button>
+        <button className="pill purple wide">Play</button>
       </form>
     </main>
   );

@@ -5,12 +5,12 @@ export default function Learn({ onBack }) {
   return (
     <main className="phone">
       <header className="top">
-        <button className="pill black" onClick={onBack}>Retour</button>
+        <button className="pill black" onClick={onBack}>Return</button>
         <Logo />
         <span />
       </header>
 
-      <h2 className="learn-title">Apprendre le HTML et le CSS</h2>
+      <h2 className="learn-title">Learn HTML and CSS</h2>
       {LEARN.map((g) => (
         <section key={g.title} className="lgroup">
           <h3>{g.title}</h3>
